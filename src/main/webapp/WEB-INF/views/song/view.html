@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chi tiết sản phẩm</h1>
+<a th:href="@{/song/list}">Danh sách sản phẩm</a>
+<p th:text="${song.id}"></p>
+<p th:text="${song.name}"></p>
+<p th:text="${song.singer}"></p>
+<p th:text="${song.type}"></p>
+<audio controls >
+    <source th:src="@{/audio/__${song.songfile}__}" type="audio/mpeg">
+</audio>
+</body>
+</html>

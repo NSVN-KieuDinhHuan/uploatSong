@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Xóa sản phẩm</h1>
+<a th:href="@{/song/list}">Danh sách sản phẩm</a>
+<form th:action="@{/song/delete/__${song.id}__}" method="post">
+    <p th:text="${song.id}"></p>
+    <p th:text="${song.name}"></p>
+    <p th:text="${song.singer}"></p>
+    <p th:text="${song.type}"></p>
+    <audio controls>
+        <source th:src="@{/image/__${song.songfile}__}" type="mp3">
+    </audio>
+    <button>Delete</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="song/layout::head"></head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<a th:href="@{/song/create}">Tạo mới sản phẩm</a>
+<table id="songs">
+    <tr>
+        <th>Mã Baì hát</th>
+        <th>Tên Bài Hát</th>
+        <th>Ca sỹ thể hiên</th>
+        <th>loại nhạc</th>
+        <th>file bài hát</th>
+        <th colspan="2"></th>
+    </tr>
+    <tr th:each="song : ${songList}">
+>
+        <td th:text="${song.id}"></td>
+        <td >
+            <a th:href="@{/song/__${song.id}__}" th:text="${song.name}"></a>
+        </td>
+        <!--/*@thymesVar id="singer" type="java"*/-->
+        <td th:text="${song.singer}"></td>
+        <td th:text="${song.type}"></td>
+        <td>
+
+        <audio controls >
+            <source th:src="@{/audio/__${song.songfile}__}" type="audio/mpeg">
+        </audio>
+         </td>
+        <td><a th:href="@{/song/edit/__${song.id}__}">Chỉnh sửa</a></td>
+        <td><a th:href="@{/song/delete/__${song.id}__}">Xóa</a></td>
+    </tr>
+</table>
+<footer th:replace="song/layout::footer"></footer>
+</body>
+</html>
