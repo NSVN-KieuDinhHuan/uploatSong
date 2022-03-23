@@ -7,11 +7,9 @@ import java.util.List;
 public interface ISongService {
     List<Song> findAll();
 
-    Song findById(int id);
+    Song findById(Long id);
 
-    void create(Song song);
+    Song create(Song song);
 
-    void updateById(int id, Song song);
-
-    void removeById(int id);
+    void removeById(Long id);
 }

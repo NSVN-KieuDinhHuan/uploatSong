@@ -7,8 +7,7 @@
 <body>
 <h1>Tạo sản phẩm</h1>
 <a th:href="@{/song/list}">Danh sách sản phẩm</a>
-<form th:action="@{/song/create}" method="post" th:object="${song}" enctype="multipart/form-data">
-    <input type="text" placeholder="mã bài hát" th:field="*{id}">
+<form th:action="@{/song/create}" method="post" th:object="${songForm}" enctype="multipart/form-data">
     <input type="text" placeholder="tên bài hát" th:field="*{name}">
     <input type="text" placeholder="ca sỹ" th:field="*{singer}">
     <input type="text" placeholder="loại nhac" th:field="*{type}">

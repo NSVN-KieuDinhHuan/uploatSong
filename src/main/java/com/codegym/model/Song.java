@@ -1,7 +1,17 @@
 package com.codegym.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Song {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
 
@@ -14,7 +24,14 @@ public class Song {
     public Song() {
     }
 
-    public Song(int id, String name, String singer, String type, String songfile) {
+    public Song(String name, String singer, String type, String songfile) {
+        this.name = name;
+        this.singer = singer;
+        this.type = type;
+        this.songfile = songfile;
+    }
+
+    public Song(Long id, String name, String singer, String type, String songfile) {
         this.id = id;
         this.name = name;
         this.singer = singer;
@@ -22,11 +39,11 @@ public class Song {
         this.songfile = songfile;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

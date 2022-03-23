@@ -5,12 +5,14 @@
 <body>
 <h1>Chỉnh sửa thông tin sản phẩm</h1>
 <a th:href="@{/song/list}">Danh sách sản phẩm</a>
-<form th:action="@{/song/edit/__${song.id}__}" method="post" th:object="${song}">
-    <input type="text" placeholder="mã bai hat" th:field="*{id}">
+<form th:action="@{/song/edit/__${song.id}__}" method="post" th:object="${song}" enctype="multipart/form-data">
     <input type="text" placeholder="tên bài hát" th:field="*{name}">
     <input type="text" placeholder="ca sỹ" th:field="*{singer}">
     <input type="text" placeholder="thể loại" th:field="*{type}">
-    <input type="text" placeholder="file" th:field="*{songfile}">
+    <input type="file" placeholder="file" th:field="*{songfile}">
+    <audio controls >
+        <source th:src="@{/audio/__${song.songfile}__}" type="audio/mpeg">
+    </audio>
     <button>Chỉnh sửa</button>
 </form>
 <footer th:replace="song/layout::footer"></footer>
